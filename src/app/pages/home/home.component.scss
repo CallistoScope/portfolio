@@ -103,6 +103,10 @@ mat-expansion-panel {
 }
 
 .card {
+    &:not(:last-of-type) {
+        margin-bottom: 16px;
+    }
+
     @media (min-width: 701px) {
         display: grid;
         grid-template-columns: 1fr 1fr;

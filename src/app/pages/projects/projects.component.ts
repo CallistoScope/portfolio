@@ -48,7 +48,7 @@ export class ProjectsComponent extends PageCommons {
   protected readonly allTags = signal<Tag[]>([]);
   protected readonly allProjects = signal<Project[]>([]);
   private readonly selectedTags: string[] = [];
-  private readonly soon = new Project('Coming Soon', '', '', [], [], [], '', '');
+  private readonly soon = new Project('Coming Soon', '', '', [], [], [], '', '', { light: '', dark: '' });
   
   /**
    * Constructs a new instance of ProjectsComponent.

@@ -9,6 +9,7 @@ export class Project {
     private _technologies: Software[];
     private _link: string;
     private _github: string;
+    private _image: { light: string, dark: string };
 
     constructor(
         name: string,
@@ -19,6 +20,7 @@ export class Project {
         technologies: Software[],
         link: string,
         github: string,
+        image: { light: string, dark: string },
     ) {
         this._name = name;
         this._type = type;
@@ -28,6 +30,7 @@ export class Project {
         this._technologies = technologies;
         this._link = link;
         this._github = github;
+        this._image = image;
     }
 
     get name() { return this._name; }
@@ -46,6 +49,8 @@ export class Project {
     set link(link: string) { this._link = link; }
     get github() { return this._github; }
     set github(github: string) { this._github = github; }
+    get image() { return this._image; }
+    set image(image: { light: string, dark: string }) { this._image = image; }
 
     toFire () {
         return {
@@ -57,6 +62,7 @@ export class Project {
             technologies: this._technologies.every(tag => tag.toFire()),
             link: this._link,
             github: this._github,
+            image: this._image,
         }
     }
 }

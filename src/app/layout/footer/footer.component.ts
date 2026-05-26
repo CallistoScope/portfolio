@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { TermsOfServiceComponent } from './components/terms-of-service/terms-of-service.component';
 import { ThemeService } from '../../core/theme.service';
@@ -13,7 +12,6 @@ import { ThemeService } from '../../core/theme.service';
         MatButtonModule,
         MatDialogModule,
         MatIconModule,
-        MatListModule,
     ],
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.scss'
@@ -21,8 +19,6 @@ import { ThemeService } from '../../core/theme.service';
 export class FooterComponent {
   private readonly theme = inject(ThemeService);
   private readonly dialog = inject(MatDialog);
-
-  constructor() {}
 
   get isDarkMode() { return this.theme.isDarkMode; }
   get year() { return (new Date()).getFullYear(); }
