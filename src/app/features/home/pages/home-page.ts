@@ -1,10 +1,9 @@
 import { Component, inject } from "@angular/core";
-import { ThemeService } from "@app/core/theme.service";
 import { HomeStore } from "../home.store";
 import { HomeHero } from "../components/home-hero";
 import { FeaturedProjects } from "../components/featured-projects";
 import { HomeExperience } from "../components/home-experience";
-import { HomeSkills } from "../components/home-skills";
+// import { HomeSkills } from "../components/home-skills";
 import { HomeCta } from "../components/home-cta";
 
 @Component({
@@ -13,13 +12,12 @@ import { HomeCta } from "../components/home-cta";
         HomeHero,
         FeaturedProjects,
         HomeExperience,
-        HomeSkills,
+        // HomeSkills,
         HomeCta,
     ],
     templateUrl: './home-page.html',
     styleUrl: './home-page.scss'
 })
 export class HomePage {
-    readonly theme = inject(ThemeService);
     readonly store = inject(HomeStore);
 }
