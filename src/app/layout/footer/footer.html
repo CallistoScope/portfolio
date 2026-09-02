@@ -1,0 +1,70 @@
+<footer class="footer">
+    <div class="footer__inner">
+
+        <div class="footer__main">
+            <div class="footer__brand">
+                <span class="footer__eyebrow">
+                    <span class="footer__dot"></span>
+                    Get in touch
+                </span>
+
+                <h2>
+                    Let's build something
+                    <span>meaningful.</span>
+                </h2>
+
+                <p>
+                    Interested in working together, discussing an idea,
+                    or simply connecting? I'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="footer__social">
+                <span class="footer__label">Find me online</span>
+
+                <nav aria-label="Social media">
+                    <a href="https://www.linkedin.com/in/bruno-escobedo/" target="_blank" rel="noopener noreferrer"
+                        class="social-link">
+                        <span>LinkedIn</span>
+                        <span class="social-link__arrow" aria-hidden="true">↗</span>
+                    </a>
+
+                    <a href="https://github.com/escobedev" target="_blank" rel="noopener noreferrer"
+                        class="social-link">
+                        <span>GitHub</span>
+                        <span class="social-link__arrow" aria-hidden="true">↗</span>
+                    </a>
+
+                    <a href="https://x.com/escobedev" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <span>X / Twitter</span>
+                        <span class="social-link__arrow" aria-hidden="true">↗</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="footer__copyright">
+                <span>© {{ YEAR }}</span>
+                <span class="footer__separator"></span>
+                <a href="https://escobedev.com" target="_blank" rel="noopener noreferrer">
+                    EscobeDev
+                </a>
+                <span>by Bruno Escobedo</span>
+            </div>
+
+            <nav class="footer__legal" aria-label="Legal">
+                <button type="button" (click)="openDialog('privacy-policy')">
+                    Privacy Policy
+                </button>
+
+                <span aria-hidden="true">·</span>
+
+                <button type="button" (click)="openDialog('terms-of-service')">
+                    Terms of Service
+                </button>
+            </nav>
+        </div>
+
+    </div>
+</footer>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -9,6 +9,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         MatProgressSpinnerModule,
     ],
     templateUrl: './spinner.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './spinner.component.scss'
 })
 export class SpinnerComponent {

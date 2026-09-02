@@ -1,0 +1,79 @@
+<section class="hero">
+
+    <div class="hero__content">
+
+        <div class="hero__eyebrow">
+            <span class="hero__dot"></span>
+            <span>Career & Experience</span>
+        </div>
+
+        <h1>
+            My journey
+            <span>so far.</span>
+        </h1>
+
+        <p class="hero__description">
+            A look at the roles, products, and experiences
+            that have shaped me as a software developer.
+        </p>
+
+    </div>
+
+    <div class="hero__aside">
+
+        <div class="career-stat">
+
+            @if (store.isLoading()) {
+
+            <div class="skeleton skeleton--stat-value"></div>
+
+            } @else if (store.hasError()) {
+            <span class="career-stat__value">
+                --
+            </span>
+            } @else if (store.isLoaded()) {
+
+            <span class="career-stat__value">
+                {{ store.experiences().length }}
+            </span>
+
+            }
+
+            <span class="career-stat__label">
+                Professional<br />
+                experiences
+            </span>
+
+        </div>
+
+        <div class="career-stat__line"></div>
+
+        <div class="career-stat">
+
+            @if (store.isLoading()) {
+
+            <div class="skeleton skeleton--stat-value skeleton--stat-value-wide"></div>
+
+            } @else if (store.hasError()) {
+            <span class="career-stat__value">
+                --
+            </span>
+            } @else if (store.isLoaded()) {
+
+            <span class="career-stat__value">
+                <span aria-hidden="true">+</span>
+                <span>{{ store.yearsOfExperience() }}</span>
+            </span>
+
+            }
+
+            <span class="career-stat__label">
+                Years of<br />
+                learning & building
+            </span>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,15 @@
+<div class="links">
+    @if (project().liveUrl) {
+    <a class="primary" [href]="project().liveUrl" target="_blank" rel="noopener noreferrer">
+        View live project
+        <span aria-hidden="true">↗</span>
+    </a>
+    }
+
+    @if (project().githubUrl) {
+    <a class="secondary" [href]="project().githubUrl" target="_blank" rel="noopener noreferrer">
+        View source
+        <span aria-hidden="true">↗</span>
+    </a>
+    }
+</div>

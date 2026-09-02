@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
@@ -11,6 +11,7 @@ import { MatDividerModule } from '@angular/material/divider';
         MatDividerModule,
     ],
     templateUrl: './coming-soon-dialog.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './coming-soon-dialog.component.scss'
 })
 export class ComingSoonDialogComponent {

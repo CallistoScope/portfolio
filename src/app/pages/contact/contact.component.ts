@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -22,6 +22,7 @@ import { PageCommons } from '../../shared/utils/page-commons';
         TypingTextComponent,
     ],
     templateUrl: './contact.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './contact.component.scss'
 })
 export class ContactComponent extends PageCommons {

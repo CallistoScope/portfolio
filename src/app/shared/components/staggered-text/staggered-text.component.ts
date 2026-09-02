@@ -1,9 +1,10 @@
-import { Component, effect, input } from '@angular/core';
+import { Component, effect, input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-staggered-text',
   imports: [],
   templateUrl: './staggered-text.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './staggered-text.component.scss'
 })
 export class StaggeredTextComponent {

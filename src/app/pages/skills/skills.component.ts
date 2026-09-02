@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -33,6 +33,7 @@ import { SpinnerComponent } from "../../shared/components/spinner/spinner.compon
         SpinnerComponent
     ],
     templateUrl: './skills.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './skills.component.scss'
 })
 export class SkillsComponent extends PageCommons {

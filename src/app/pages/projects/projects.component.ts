@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -29,6 +29,7 @@ import { PageCommons } from '../../shared/utils/page-commons';
         TypingTextComponent,
     ],
     templateUrl: './projects.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent extends PageCommons {

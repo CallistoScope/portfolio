@@ -1,0 +1,376 @@
+:host {
+    display: block;
+}
+
+.project-page {
+    width: min(1180px, calc(100% - 3rem));
+    margin: 0 auto;
+    padding: clamp(5rem, 8vw, 7rem) 0 7rem;
+}
+
+/* ==========================================================================
+   Back navigation
+   ========================================================================== */
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-bottom: clamp(4rem, 8vw, 7rem);
+
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition:
+        color 160ms ease,
+        gap 160ms ease;
+
+    span {
+        font-size: 1rem;
+    }
+
+    &:hover {
+        gap: 0.75rem;
+        color: var(--color-text);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 4px;
+        border-radius: 0.25rem;
+    }
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero__meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+
+    margin-bottom: 1.25rem;
+
+    color: var(--color-text-tertiary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.hero__meta .category {
+    color: var(--color-primary);
+}
+
+.separator {
+    opacity: 0.45;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-weight: 750;
+    line-height: 0.92;
+}
+
+.hero__description {
+    max-width: 680px;
+    margin: 1.75rem auto 0;
+
+    color: var(--color-text-secondary);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.75;
+}
+
+/* ==========================================================================
+   Project information
+   ========================================================================== */
+
+.project-info {
+    display: inline-flex;
+    align-items: stretch;
+
+    margin-top: 2.5rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: 0.9rem;
+
+    background: var(--color-surface-secondary);
+
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    min-width: 190px;
+    padding: 1rem 1.5rem;
+}
+
+.info-item__label {
+    color: var(--color-text-tertiary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.info-item strong {
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.info-divider {
+    width: 1px;
+    margin: 0.8rem 0;
+
+    background: var(--color-border);
+}
+
+/* ==========================================================================
+   Technologies
+   ========================================================================== */
+
+.tech-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+
+    margin: 3rem auto 0;
+    padding: 1.25rem 0;
+
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-label {
+    color: var(--color-text-tertiary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   Content sections
+   ========================================================================== */
+
+.content-section {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 650px);
+    gap: 5rem;
+
+    max-width: 1000px;
+    margin: 0 auto;
+
+    padding: 5rem 0;
+
+    border-top: 1px solid var(--color-border);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.section-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+
+    color: var(--color-text-tertiary);
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem;
+
+    color: var(--color-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+.section-content {
+    color: var(--color-text-secondary);
+}
+
+.overview .section-content>p {
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.85;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   Technology details
+   ========================================================================== */
+
+.technology-details {
+    padding-bottom: 5rem;
+}
+
+/* ==========================================================================
+   Project navigation
+   ========================================================================== */
+
+.project-navigation {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 2rem;
+}
+
+.project-navigation a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    padding: 0.75rem 1.1rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+
+    color: var(--color-text);
+    background: var(--color-surface);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        background 160ms ease,
+        border-color 160ms ease,
+        gap 160ms ease;
+
+    &:hover {
+        gap: 0.8rem;
+        border-color: var(--color-border-strong);
+        background: var(--color-surface-secondary);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 3px;
+    }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 800px) {
+    .project-page {
+        width: min(100% - 2rem, 1180px);
+    }
+
+    .hero h1 {
+        font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+    .content-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .section-heading {
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-page {
+        padding-block: 4rem;
+    }
+
+    .back {
+        margin-bottom: 4rem;
+    }
+
+    .hero__description {
+        margin-top: 1.25rem;
+    }
+
+    .project-info {
+        display: flex;
+        width: 100%;
+    }
+
+    .info-item {
+        min-width: 0;
+        flex: 1;
+        padding: 1rem;
+    }
+
+    .info-item strong {
+        font-size: 0.8rem;
+    }
+
+    .tech-section {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .content-section {
+        padding: 3.5rem 0;
+    }
+
+    .technology-details {
+        padding-bottom: 3.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .project-info {
+        flex-direction: column;
+    }
+
+    .info-divider {
+        width: auto;
+        height: 1px;
+        margin: 0 1rem;
+    }
+
+    .info-item {
+        padding: 0.9rem 1rem;
+    }
+}

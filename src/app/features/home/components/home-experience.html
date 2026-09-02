@@ -1,0 +1,56 @@
+<section class="experience">
+
+    <header class="section-header">
+        <p class="eyebrow">Experience</p>
+
+        <h2>Where I've worked</h2>
+    </header>
+
+    <div class="timeline">
+
+        @for (
+        item of experience();
+        track item.company
+        ) {
+
+        <article class="experience-item">
+
+            <div class="experience-item__date">
+                {{ item.duration }}
+            </div>
+
+            <div class="experience-item__content">
+
+                <h3>{{ item.position }}</h3>
+
+                <p class="company">
+                    {{ item.company }}
+                </p>
+
+                <p class="description">
+                    {{ item.description }}
+                </p>
+
+                <div class="technologies">
+                    @for (
+                    technology of item.technologies;
+                    track technology
+                    ) {
+                    <span>{{ technology }}</span>
+                    }
+                </div>
+
+            </div>
+
+        </article>
+
+        }
+
+    </div>
+
+    <a class="view-all" routerLink="/experience">
+        View full experience
+        <span aria-hidden="true">↗</span>
+    </a>
+
+</section>

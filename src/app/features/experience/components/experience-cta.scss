@@ -1,0 +1,132 @@
+:host {
+    display: block;
+}
+
+.experience-next {
+    margin: 0 1.5rem 2rem;
+    padding: 0 0 5rem;
+}
+
+.experience-next__content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 3rem;
+
+    padding-top: 3rem;
+
+    border-top: 1px solid var(--color-border);
+}
+
+/* Heading */
+
+.eyebrow {
+    margin: 0 0 0.65rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.experience-next h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 700;
+
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+}
+
+.experience-next h2 span {
+    color: var(--color-primary);
+}
+
+/* Navigation link */
+
+.next-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    flex-shrink: 0;
+
+    padding-bottom: 0.25rem;
+
+    border-bottom: 1px solid var(--color-border-strong);
+
+    color: var(--color-text);
+
+    font-size: 0.8rem;
+    font-weight: 650;
+
+    text-decoration: none;
+
+    transition:
+        color 160ms ease,
+        border-color 160ms ease,
+        gap 160ms ease;
+}
+
+.next-link__arrow {
+    color: var(--color-text-tertiary);
+
+    transition:
+        transform 160ms ease,
+        color 160ms ease;
+}
+
+.next-link:hover {
+    gap: 1rem;
+
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.next-link:hover .next-link__arrow {
+    color: var(--color-primary);
+    transform: translate(2px, -2px);
+}
+
+/* Focus */
+
+.experience-next :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+    .experience-next {
+        margin-inline: 1rem;
+        padding-bottom: 3rem;
+    }
+
+    .experience-next__content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2rem;
+
+        padding-top: 2.5rem;
+    }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .experience-next *,
+    .experience-next *::before,
+    .experience-next *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

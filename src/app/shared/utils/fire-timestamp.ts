@@ -1,4 +1,4 @@
-import { Timestamp } from "@angular/fire/firestore";
+import { Timestamp } from "firebase/firestore";
 
 /**
  * Gets the date from the given timestamp.

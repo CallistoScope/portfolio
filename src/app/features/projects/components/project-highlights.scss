@@ -1,0 +1,41 @@
+ul {
+    display: grid;
+    gap: 1.25rem;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: 0.75rem;
+
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    .highlights {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

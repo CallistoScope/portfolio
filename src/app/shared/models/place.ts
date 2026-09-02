@@ -1,4 +1,4 @@
-import { GeoPoint } from "@angular/fire/firestore";
+import { GeoPoint } from "firebase/firestore";
 
 export class Place {
     private _name: string;

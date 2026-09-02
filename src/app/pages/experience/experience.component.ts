@@ -1,4 +1,4 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, computed, effect, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -22,6 +22,7 @@ import { SoftSkillTag, SoftSkills } from '../../shared/models/soft-skills';
         TypingTextComponent,
     ],
     templateUrl: './experience.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './experience.component.scss'
 })
 export class ExperienceComponent extends PageCommons {

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -7,26 +7,27 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
+import { Timestamp } from 'firebase/firestore';
 import { Job } from '../../models/job';
 import { Company } from '../../models/company';
-import { Timestamp } from '@angular/fire/firestore';
 import { Tag } from '../../models/tag';
 import { SoftSkillTag, SoftSkills } from '../../models/soft-skills';
 
 @Component({
-    selector: 'app-job-box',
-    imports: [
-        DatePipe,
-        MatButtonModule,
-        MatCardModule,
-        MatChipsModule,
-        MatIconModule,
-        MatListModule,
-        MatTooltipModule,
-        RouterLink,
-    ],
-    templateUrl: './job-box.component.html',
-    styleUrl: './job-box.component.scss'
+  selector: 'app-job-box',
+  imports: [
+    DatePipe,
+    MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
+    MatIconModule,
+    MatListModule,
+    MatTooltipModule,
+    RouterLink,
+  ],
+  templateUrl: './job-box.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './job-box.component.scss'
 })
 export class JobBoxComponent implements OnInit {
   @Input() job: Job = {} as Job;

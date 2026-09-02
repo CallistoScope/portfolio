@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,6 +33,7 @@ import { SoftSkillTag } from '../../shared/models/soft-skills';
         TypingTextComponent,
     ],
     templateUrl: './skill.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './skill.component.scss'
 })
 export class SkillComponent {

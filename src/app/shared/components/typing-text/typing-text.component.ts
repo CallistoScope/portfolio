@@ -1,9 +1,10 @@
-import { Component, input, Input, signal } from '@angular/core';
+import { Component, input, Input, signal, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'app-typing-text',
     imports: [],
     templateUrl: './typing-text.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './typing-text.component.scss'
 })
 export class TypingTextComponent {

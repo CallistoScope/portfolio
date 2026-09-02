@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -21,6 +21,7 @@ import { Tag } from '../../models/tag';
         RouterLink,
     ],
     templateUrl: './project-box.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './project-box.component.scss'
 })
 export class ProjectBoxComponent {

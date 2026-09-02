@@ -1,0 +1,94 @@
+<section class="timeline-section">
+
+    <header class="section-header">
+
+        <div>
+            <p class="eyebrow">
+                Professional experience
+            </p>
+
+            <h2>
+                Where I've
+                <span>worked.</span>
+            </h2>
+        </div>
+
+        <p class="section-header__hint">
+            A timeline of my professional journey.
+        </p>
+
+    </header>
+
+
+    @if (store.isLoading()) {
+
+    <div class="timeline-section__loading">
+
+        @for (item of [1, 2, 3]; track item) {
+
+        <div class="experience-skeleton">
+
+            <div class="experience-skeleton__marker">
+                <div class="skeleton skeleton--circle"></div>
+            </div>
+
+            <div class="experience-skeleton__content">
+
+                <div class="skeleton skeleton--company"></div>
+
+                <div class="skeleton skeleton--role"></div>
+
+                <div class="skeleton skeleton--line"></div>
+                <div class="skeleton skeleton--line skeleton--line-short"></div>
+
+                <div class="experience-skeleton__meta">
+                    <div class="skeleton skeleton--meta"></div>
+                    <div class="skeleton skeleton--meta skeleton--meta-short"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        }
+
+    </div>
+
+    } @else if (store.hasError()) {
+
+    <div class="timeline-error">
+        <div class="error-state">
+
+            <div class="error-state__icon" aria-hidden="true">
+                !
+            </div>
+
+            <p class="eyebrow">Something went wrong</p>
+
+            <h1>
+                We couldn't load my
+                <span>experience.</span>
+            </h1>
+
+            <p>
+                Please try again in a moment.
+            </p>
+
+            <button type="button" class="button button--primary" (click)="store.load()">
+                Try again
+            </button>
+
+        </div>
+    </div>
+
+    } @else if (store.isLoaded() && store.hasExperiences()) {
+    <section class="timeline">
+        @for (
+        experience of store.experiences();
+        track experience.id
+        ) {
+        <app-experience-card [experience]="experience" />
+        }
+    </section>
+    }
+</section>

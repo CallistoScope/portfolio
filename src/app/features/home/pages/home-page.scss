@@ -1,0 +1,204 @@
+:host {
+    display: block;
+}
+
+/* ==========================================================================
+   Page
+   ========================================================================== */
+
+.home-page {
+    width: min(100%, 1200px + 3rem);
+    margin-inline: auto;
+
+    color: var(--color-text);
+}
+
+
+/* ==========================================================================
+   Shared layout
+   ========================================================================== */
+
+.home-page>* {
+    width: 100%;
+}
+
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+.home-page :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .home-page {
+        width: min(100%, 1200px + 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .home-page {
+        width: min(100%, 1200px + 1.5rem);
+    }
+}
+
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .home-page *,
+    .home-page *::before,
+    .home-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* ==========================================================================
+   Floating + Scroll-based Parallax
+   ========================================================================== */
+
+@keyframes float {
+    from {
+        transform: translate(-50%, -50%) translateX(-10px) translateY(0) rotate(-5deg);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) translateX(0) translateY(10px) rotate(5deg);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateX(10px) translateY(0) rotate(-5deg);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) translateX() translateY(-10px) rotate(5deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) translateX(0) translateY(0) rotate(180deg);
+    }
+}
+
+@keyframes bounce-top {
+    from {
+        transform: translate(-50%, -50%) translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-10px) rotate(3deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) translateY(0) rotate(-3deg);
+    }
+}
+
+@keyframes bounce-bottom {
+    from {
+        transform: translate(-50%, -50%) translateX(0) translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateX(12px) translateY(6px) rotate(-3deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) translateX(0) translateY(0) rotate(3deg);
+    }
+}
+
+@keyframes bounce-left {
+    from {
+        transform: translate(-50%, -50%) translateX(0) translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateX(-12px) translateY(6px) rotate(3deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) translateX(0) translateY(0) rotate(-3deg);
+    }
+}
+
+.parallax-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+    @media (max-width: 830px) {
+        pointer-events: none;
+    }
+
+    .floating-image {
+        position: absolute;
+        top: 50dvh;
+        left: 50dvw;
+
+        opacity: 0;
+
+        animation: float 10s ease-in-out infinite alternate;
+        transition: top 100ms ease-in-out, left 100ms ease-in-out;
+        will-change: transform, opacity;
+
+        .logo-wrap {
+            position: relative;
+
+            >[class*='logo-'] {
+                position: absolute;
+                will-change: transform, opacity;
+            }
+
+            >.logo-top {
+                animation:
+                    bounce-top 4s linear(0 0%, 0 2.27%, 0.02 4.53%, 0.04 6.8%, 0.06 9.07%, 0.1 11.33%,
+                        0.14 13.6%, 0.25 18.15%, 0.39 22.7%, 0.56 27.25%, 0.77 31.8%, 1 36.35%,
+                        0.89 40.9%, 0.85 43.18%, 0.81 45.45%, 0.79 47.72%, 0.77 50%, 0.75 52.27%,
+                        0.75 54.55%, 0.75 56.82%, 0.77 59.1%, 0.79 61.38%, 0.81 63.65%, 0.85 65.93%,
+                        0.89 68.2%, 1 72.7%, 0.97 74.98%, 0.95 77.25%, 0.94 79.53%, 0.94 81.8%,
+                        0.94 84.08%, 0.95 86.35%, 0.97 88.63%, 1 90.9%, 0.99 93.18%, 0.98 95.45%,
+                        0.99 97.73%, 1 100%) infinite alternate;
+            }
+
+            >.logo-bottom {
+                animation:
+                    bounce-bottom 3.5s linear(0 0%, 0 2.27%, 0.02 4.53%, 0.04 6.8%, 0.06 9.07%, 0.1 11.33%,
+                        0.14 13.6%, 0.25 18.15%, 0.39 22.7%, 0.56 27.25%, 0.77 31.8%, 1 36.35%,
+                        0.89 40.9%, 0.85 43.18%, 0.81 45.45%, 0.79 47.72%, 0.77 50%, 0.75 52.27%,
+                        0.75 54.55%, 0.75 56.82%, 0.77 59.1%, 0.79 61.38%, 0.81 63.65%, 0.85 65.93%,
+                        0.89 68.2%, 1 72.7%, 0.97 74.98%, 0.95 77.25%, 0.94 79.53%, 0.94 81.8%,
+                        0.94 84.08%, 0.95 86.35%, 0.97 88.63%, 1 90.9%, 0.99 93.18%, 0.98 95.45%,
+                        0.99 97.73%, 1 100%) infinite alternate;
+            }
+
+            >.logo-left {
+                animation:
+                    bounce-left 4.5s linear(0 0%, 0 2.27%, 0.02 4.53%, 0.04 6.8%, 0.06 9.07%, 0.1 11.33%,
+                        0.14 13.6%, 0.25 18.15%, 0.39 22.7%, 0.56 27.25%, 0.77 31.8%, 1 36.35%,
+                        0.89 40.9%, 0.85 43.18%, 0.81 45.45%, 0.79 47.72%, 0.77 50%, 0.75 52.27%,
+                        0.75 54.55%, 0.75 56.82%, 0.77 59.1%, 0.79 61.38%, 0.81 63.65%, 0.85 65.93%,
+                        0.89 68.2%, 1 72.7%, 0.97 74.98%, 0.95 77.25%, 0.94 79.53%, 0.94 81.8%,
+                        0.94 84.08%, 0.95 86.35%, 0.97 88.63%, 1 90.9%, 0.99 93.18%, 0.98 95.45%,
+                        0.99 97.73%, 1 100%) infinite alternate;
+            }
+        }
+    }
+}

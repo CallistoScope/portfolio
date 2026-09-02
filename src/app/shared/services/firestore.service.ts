@@ -1,10 +1,7 @@
-import { inject, Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import {
-  Firestore,
   doc,
-  docData,
   collection,
-  collectionData,
   orderBy,
   limit,
   query,
@@ -14,23 +11,21 @@ import {
   DocumentReference,
   Query,
   CollectionReference,
-} from '@angular/fire/firestore';
+  onSnapshot,
+} from 'firebase/firestore';
+
+import { firestore } from '@app/firebase';
 import { Observable, of, tap } from 'rxjs';
 
 const TOKEN_KEY = 'Token';
 
 /**
  * Firestore service.
- * @Injectable
+ * @Service
  * @class FirestoreService
  */
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class FirestoreService {
-  private readonly firestore = inject(Firestore);
-
-  constructor() { }
 
   /**
    * Gets the cached data from the local storage or the data from the Firestore query.
@@ -105,11 +100,19 @@ export class FirestoreService {
     docPath: string
   ) {
     const docRef = doc(
-      this.firestore,
+      firestore,
       collectionPath,
       docPath
     ) as DocumentReference<T, DocumentData>;
-    return docData<T>(docRef);
+    return new Observable<T | undefined>((subscriber) => {
+      return onSnapshot(
+        docRef,
+        (snapshot) => {
+          subscriber.next(snapshot.data() as T | undefined);
+        },
+        (error) => subscriber.error(error)
+      );
+    });
   }
 
   /**
@@ -122,10 +125,20 @@ export class FirestoreService {
     collectionPath: string
   ) {
     const collectionRef = collection(
-      this.firestore,
+      firestore,
       collectionPath
     ) as Query<T, DocumentData>;
-    return collectionData<T>(collectionRef);
+    return new Observable<T[]>((subscriber) => {
+      return onSnapshot(
+        collectionRef,
+        (snapshot) => {
+          subscriber.next(
+            snapshot.docs.map(doc => doc.data() as T)
+          );
+        },
+        (error) => subscriber.error(error)
+      );
+    });
   }
 
   /**
@@ -140,13 +153,23 @@ export class FirestoreService {
     ...queryConstraints: QueryConstraint[]
   ) {
     const collectionRef = collection(
-      this.firestore,
+      firestore,
       collectionPath
     ) as CollectionReference<T>;
     const queryResult = query(
       collectionRef,
       ...queryConstraints
     );
-    return collectionData<T>(queryResult);
+    return new Observable<T[]>((subscriber) => {
+      return onSnapshot(
+        queryResult,
+        (snapshot) => {
+          subscriber.next(
+            snapshot.docs.map(doc => doc.data() as T)
+          );
+        },
+        (error) => subscriber.error(error)
+      );
+    });
   }
 }

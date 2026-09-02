@@ -1,0 +1,8 @@
+<section class="gallery" aria-label="Project screenshots">
+    @for (image of images(); track image.light) {
+    @let src = theme.isLightMode() ? image.light : image.dark;
+    <picture class="image">
+        <img [ngSrc]="src" fill alt="Project screenshot" loading="lazy" />
+    </picture>
+    }
+</section>

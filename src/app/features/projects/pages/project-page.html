@@ -1,0 +1,155 @@
+@if (store.isProjectLoading()) {
+<!-- <app-project-page-skeleton /> -->
+} @else if (store.hasProjectError()) {
+<!-- <app-project-not-found /> -->
+} @else if (store.hasProjectLoaded()) {
+@if (store.currentProject(); as project) {
+<main class="project-page">
+
+    <!-- Back navigation -->
+    <a class="back" routerLink="/projects">
+        <span aria-hidden="true">←</span>
+        Back to projects
+    </a>
+
+    <!-- Hero -->
+    <header class="hero">
+
+        <div class="hero__meta">
+            <span class="category">
+                {{ project.category }}
+            </span>
+
+            <span class="separator" aria-hidden="true">/</span>
+
+            @for (
+            platform of project.platforms;
+            track platform;
+            let last = $last
+            ) {
+            <span>{{ platform }}</span>
+
+            @if (!last) {
+            <span class="separator" aria-hidden="true">·</span>
+            }
+            }
+        </div>
+
+        <h1>{{ project.name }}</h1>
+
+        <p class="hero__description">
+            {{ project.description }}
+        </p>
+
+        <!-- Project information -->
+        <div class="project-info">
+
+            <div class="info-item">
+                <span class="info-item__label">
+                    Role
+                </span>
+
+                <strong>
+                    {{ project.role }}
+                </strong>
+            </div>
+
+            <div class="info-divider"></div>
+
+            <div class="info-item">
+                <span class="info-item__label">
+                    Duration
+                </span>
+
+                <strong>
+                    {{ project.duration }}
+                </strong>
+            </div>
+
+        </div>
+
+        <app-project-links [project]="project" />
+
+    </header>
+
+    <!-- Technologies -->
+    <section class="tech-section">
+        <div class="section-label">
+            <span>Technologies</span>
+        </div>
+
+        <app-project-tags [project]="project" />
+    </section>
+
+    <!-- Screenshots -->
+    <app-project-gallery [images]="project.images" />
+
+    <!-- Project overview -->
+    <section class="content-section overview">
+
+        <div class="section-heading">
+            <span class="section-number">01</span>
+
+            <div>
+                <p class="eyebrow">Overview</p>
+                <h2>About the project</h2>
+            </div>
+        </div>
+
+        <div class="section-content">
+            <p>
+                {{ project.overview }}
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Contribution -->
+    <section class="content-section">
+
+        <div class="section-heading">
+            <span class="section-number">02</span>
+
+            <div>
+                <p class="eyebrow">Contribution</p>
+                <h2>What I built</h2>
+            </div>
+        </div>
+
+        <div class="section-content">
+            <app-project-highlights [highlights]="project.highlights" />
+        </div>
+
+    </section>
+
+    <!-- Technology details -->
+    <section class="content-section technology-details">
+
+        <div class="section-heading">
+            <span class="section-number">03</span>
+
+            <div>
+                <p class="eyebrow">Technology</p>
+                <h2>Built with</h2>
+            </div>
+        </div>
+
+        <div class="section-content">
+            <app-project-tags [project]="project" />
+        </div>
+
+    </section>
+
+    <!-- Bottom navigation -->
+    <nav class="project-navigation" aria-label="Project navigation">
+
+        <a routerLink="/projects">
+            <span>←</span>
+            <span>All projects</span>
+        </a>
+
+    </nav>
+
+</main>
+}
+}

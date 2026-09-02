@@ -1,0 +1,13 @@
+<div class="tags">
+    @for (platform of project().platforms; track platform) {
+    <span class="tag tag--platform">
+        {{ platform }}
+    </span>
+    }
+
+    @for (technology of project().technologies; track technology) {
+    <span class="tag">
+        {{ technology }}
+    </span>
+    }
+</div>

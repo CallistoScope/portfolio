@@ -1,4 +1,4 @@
-import { Timestamp } from "@angular/fire/firestore";
+import { Timestamp } from "firebase/firestore";
 import { Software } from "./software";
 
 export class Achievement {
@@ -11,7 +11,7 @@ export class Achievement {
     protected _content: string[];
     protected _tags: string[];
     protected _skills: Software[];
-    
+
     constructor(
         name: string,
         issuer: string,

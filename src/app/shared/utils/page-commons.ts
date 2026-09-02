@@ -1,5 +1,5 @@
 import { signal } from "@angular/core";
-import { Timestamp } from "@angular/fire/firestore";
+import { Timestamp } from "firebase/firestore";
 import { timestampToDate } from "./fire-timestamp";
 
 /**
@@ -23,7 +23,7 @@ export class PageCommons {
         title: string,
         speed?: number,
         hideDelay?: number,
-        afterLoadFn: (...args: any[]) => void = () => {},
+        afterLoadFn: (...args: any[]) => void = () => { },
     ) {
         this.title = title;
         window.scrollTo(0, 0);
@@ -43,7 +43,7 @@ export class PageCommons {
      * @param behavior How the scrolling happens, it can be 'auto' or 'smooth'.
      */
     protected scrollUp(top: number = 0, behavior: 'auto' | 'smooth' = 'auto') {
-        window.scrollTo({ top: top,  behavior: behavior });
+        window.scrollTo({ top: top, behavior: behavior });
     }
 
     /**
